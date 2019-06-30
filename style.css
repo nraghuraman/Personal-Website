@@ -43,15 +43,29 @@ body {
 
 @keyframes btn-fade {
     from {
-        border-bottom: rgba(128, 128, 0, 0);
-        border-bottom-width: 3px;
+        /* border-bottom-width: 3px;
         border-bottom-style: solid;
+        border-bottom-color: rgba(128, 128, 0, 0); */
+        color: green;
     }
-
     to {
-        border-bottom: rgba(128, 128, 0, 1);  
+        /* border-bottom-width: 3px;
+        border-bottom-style: solid;
+        border-bottom-color: rgba(128, 128, 0, 1.0); */
+        color: red;
+    }
+}
+
+@-ms-keyframes btn-fade {
+    from {
         border-bottom-width: 3px;
         border-bottom-style: solid;
+        border-bottom-color: rgba(128, 128, 0, 0);
+    }
+    to {
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
+        border-bottom-color: rgba(128, 128, 0, 1.0);
     }
 }
 
@@ -124,6 +138,9 @@ nav {
     animation-name: btn-fade;
     animation-duration: 1s;
     animation-fill-mode: both;
+    -ms-animation-name: btn-fade;
+    -ms-animation-duration: 1s;
+    -ms-animation-fill-mode: both;
 }
 
 .button {
