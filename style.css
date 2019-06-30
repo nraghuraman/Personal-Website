@@ -107,7 +107,7 @@ nav {
 }
 
 .navbar {
-    background-color: rgba(250, 226, 226);
+    background-color: rgba(250, 226, 226, 1);
     height: auto;
     padding-top: 5px;
     padding-bottom: 12px;
@@ -154,7 +154,7 @@ nav {
 }
 
 .separator {
-    background-color: rgba(250, 226, 226);
+    background-color: rgba(250, 226, 226, 1);
     width: 100%;
     height: 3px;
     margin-bottom: 60px;
@@ -189,7 +189,7 @@ nav {
 }
 
 #connect-section {
-    background-color: rgba(250, 226, 226);
+    background-color: rgba(250, 226, 226, 1);
     width: auto;
     padding-top: 35px;
     padding-bottom: 35px;
