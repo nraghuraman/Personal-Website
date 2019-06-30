@@ -1,0 +1,196 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin-top: 25px;
+    overflow-x: hidden;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        animation-name: fix-y;
+        animation-duration: 4s;
+        animation-timing-function: step-end;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-into-l {
+    from {
+        transform: translateX(-400%);
+    }
+}
+
+@keyframes slide-into-r {
+    from {
+        transform: translateX(400%);
+    }
+}
+
+@keyframes btn-fade {
+    from {
+        border-bottom: rgba(128, 128, 0, 0);
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
+    }
+
+    to {
+        border-bottom: rgba(128, 128, 0, 1);  
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
+    }
+}
+
+@keyframes fix-y {
+    from {
+        overflow-y: hidden;
+    }
+    to {
+        overflow-y: auto;
+    }
+}
+
+h1 {
+    font-family: "Trebuchet MS", serif;
+    font-size: 45px;
+}
+
+
+h2 {
+    font-family: "Trebuchet MS", serif;
+    color: olive;
+}
+
+h3 {
+    font-family: "Trebuchet MS", serif;
+    color: olive;
+    font-size: 18px;
+}
+
+figcaption {
+    font-family: "Trebuchet MS", serif;
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+p {
+    font-family: "Trebuchet MS", serif;
+}
+
+img {
+    float: center;
+}
+
+nav {
+    float: right;
+}
+
+@media screen and (max-width: 1012px) {
+    nav {
+        display: none;
+    }
+}
+
+.navbar {
+    background-color: rgba(250, 226, 226);
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    animation-name: fade-in;
+    animation-duration: 2s;
+    box-shadow: 0px 0.7px 10px #D3D3D3;
+}
+
+.button:hover {
+    text-decoration: none;
+    color: olive;
+    animation-name: btn-fade;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.button {
+    vertical-align: middle;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-bottom: 6px;
+    font-family: "Trebuchet MS", serif;
+    font-size: 20px;
+    color: olive;
+}
+
+.button:visited {
+    color: olive;
+}
+
+.container {
+    padding-top: 80px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.separator {
+    background-color: rgba(250, 226, 226);
+    width: 100%;
+    height: 3px;
+    margin-bottom: 60px;
+}
+
+@media screen and (max-width: 1012px) {
+    #name {
+        text-align: center;
+    }
+}
+
+#headshot {
+    animation-name: slide-into-l;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-fill-mode: both;
+}
+
+#about-me {
+    overflow: auto;
+    justify-content: left;
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    animation-fill-mode: both;
+}
+
+@media screen and (max-width: 768px) {
+    #about-me {
+        animation-delay: 2s;
+    }
+}
+
+#connect-section {
+    background-color: rgba(250, 226, 226);
+    width: auto;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+#email {
+    display: inline-block;
+    margin-top: 25px;
+}
