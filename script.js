@@ -24,8 +24,8 @@ var performNavbarAnimation = function(previousWasBigger) {
  */
 var setButtonMargins = function(marginSize) {
 	var elements = document.getElementsByClassName("btn");
-	for (elem of elements) {
-		elem.style.marginTop = marginSize;
+	for (var i = 0; i < elements.length; i++) {
+		elements[i].style.marginTop = marginSize;
 	}
 }
 
