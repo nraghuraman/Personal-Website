@@ -43,29 +43,10 @@ body {
 
 @keyframes btn-fade {
     from {
-        /* border-bottom-width: 3px;
-        border-bottom-style: solid;
-        border-bottom-color: rgba(128, 128, 0, 0); */
-        color: green;
-    }
-    to {
-        /* border-bottom-width: 3px;
-        border-bottom-style: solid;
-        border-bottom-color: rgba(128, 128, 0, 1.0); */
-        color: red;
-    }
-}
-
-@-ms-keyframes btn-fade {
-    from {
-        border-bottom-width: 3px;
-        border-bottom-style: solid;
         border-bottom-color: rgba(128, 128, 0, 0);
     }
     to {
-        border-bottom-width: 3px;
-        border-bottom-style: solid;
-        border-bottom-color: rgba(128, 128, 0, 1.0);
+        border-bottom-color: rgba(128, 128, 0, 1);
     }
 }
 
@@ -86,12 +67,12 @@ h1 {
 
 h2 {
     font-family: "Trebuchet MS", serif;
-    color: olive;
+    color: rgb(128, 128, 0);
 }
 
 h3 {
     font-family: "Trebuchet MS", serif;
-    color: olive;
+    color: rgb(128, 128, 0);
     font-size: 18px;
 }
 
@@ -134,13 +115,10 @@ nav {
 
 .button:hover {
     text-decoration: none;
-    color: olive;
+    color: rgb(128, 128, 0);
     animation-name: btn-fade;
     animation-duration: 1s;
     animation-fill-mode: both;
-    -ms-animation-name: btn-fade;
-    -ms-animation-duration: 1s;
-    -ms-animation-fill-mode: both;
 }
 
 .button {
@@ -152,11 +130,14 @@ nav {
     padding-bottom: 6px;
     font-family: "Trebuchet MS", serif;
     font-size: 20px;
-    color: olive;
+    color: rgb(128, 128, 0);
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(128, 128, 0, 0);
 }
 
 .button:visited {
-    color: olive;
+    color: rgb(128, 128, 0);
 }
 
 .container {

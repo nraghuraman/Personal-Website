@@ -27,7 +27,7 @@ window.onscroll = (function () {
 	var previousWasBigger = true;
 
 	return function() {
-		if (document.documentElement.scrollTop > 120) {
+		if (window.scrollY || window.pageYOffset > 120) {
 			document.getElementById("navbar").style.paddingTop = "0px"; // Sets back exactly to 0, considering float arithmetic issues
 			setButtonMargins("0px");
 			if (previousWasBigger) {
