@@ -15,7 +15,7 @@ body {
 @media screen and (min-width: 768px) {
     body {
         overflow-y: auto;
-        animation-name: fix-y;
+        animation-name: fix-overflow-y;
         animation-duration: 4s;
         animation-timing-function: step-end;
     }
@@ -51,7 +51,7 @@ body {
     }
 }
 
-@keyframes fix-y {
+@keyframes fix-overflow-y {
     from {
         overflow-y: hidden;
     }
