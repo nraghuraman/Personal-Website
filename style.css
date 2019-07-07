@@ -172,7 +172,7 @@ nav {
     animation-fill-mode: both;
 }
 
-#about-me {
+#welcome {
     overflow: auto;
     justify-content: left;
     animation-name: fade-in;
@@ -182,7 +182,7 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
-    #about-me {
+    #welcome {
         animation-delay: 2s;
     }
 }
