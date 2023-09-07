@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cross-Image Context Matters for Bongard Problems</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      html,body,h1,h2,h3,h4,h5,h6 {font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;}
+      <!-- .cite { background:#f0f0f0; padding:10px; font-size:18px} -->
+      .cite { padding:0px; background:#ffffff; font-size:18px}
+      .card {border: 1px solid #ccc}
+      img { margin-bottom:-6px;}
+      p { font-size:18px;}
+      a {text-decoration: none; color: #2196F3;}
+      .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+      box-shadow:
+      0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+      5px 5px 0 0px #fff, /* The second layer */
+      5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+      10px 10px 0 0px #fff, /* The third layer */
+      10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+      15px 15px 0 0px #fff, /* The fourth layer */
+      15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+      20px 20px 0 0px #fff, /* The fifth layer */
+      20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+      25px 25px 0 0px #fff, /* The fifth layer */
+      25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+      margin-left: 10px;
+      margin-right: 60px;
+      }
+    </style>
+  </head>  
+  <body class="w3-white">
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top w3-margin-bottom" style="max-width:960px;">
+
+      <!-- The Grid -->
+      <div class="w3-row-padding">
+
+	<!-- paper container -->	  
+	<div class="w3-display-container w3-row w3-white w3-margin-bottom">
+	  <div class="w3-center">
+	    <h1>Cross-Image Context Matters for Bongard Problems</h1>
+	    <h5><a href="https://nikhilraghuraman.com">Nikhil Raghuraman</a> &emsp;&emsp; <a href="https://adamharley.com/">Adam W. Harley</a> &emsp;&emsp; <a href="https://geometry.stanford.edu/member/guibas/">Leonidas Guibas</a></h5>
+	  </div>
+	  <div class="w3-center">
+	    <h3>[<a href="https://arxiv.org/abs/2204.04153">Paper</a>] &emsp; [<a href="https://github.com/nraghuraman/bongard-context">Code</a>] &emsp;</h3>
+	  </div>
+	  <hr>
+
+	  <div class="w3-center">
+	    <h2>Abstract</h2>
+	  </div>
+      <p>Current machine learning methods struggle to solve Bongard problems, which are a type of IQ test that requires deriving an abstract "concept" from a set of positive and negative "support" images, and then classifying whether or not a new query image depicts the key concept. On Bongard-HOI, a benchmark for natural-image Bongard problems, existing methods have only reached 66% accuracy (where chance is 50%). Low accuracy is often attributed to neural nets' lack of ability to find human-like symbolic rules. In this work, we point out that many existing methods are forfeiting accuracy due to a much simpler problem: they do not incorporate information contained in the support set as a whole, and rely instead on information extracted from individual supports. This is a critical issue, because unlike in few-shot learning tasks concerning object classification, the "key concept" in a typical Bongard problem can only be distinguished using multiple positives and multiple negatives. We explore a variety of simple methods to take this cross-image context into account, and demonstrate substantial gains over prior methods, leading to new state-of-the-art performance on Bongard-LOGO (75.17%) and Bongard-HOI (72.45%) and strong performance on the original Bongard problem set (60.84%).</p>
+	  <hr>
+
+	  <div class="w3-center">
+	    <h2>Overview</h2>
+	  </div>
+      <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:10px;">
+	    <tr style="padding:0px">
+	      <td style="padding-right:1%;width:32%;vertical-align:middle">
+            <img style="width:100%;max-width:100%" src="images/logo_eg.png">
+	      </td>
+	      <td style="padding-right:1%;width:32%;vertical-align:middle">
+            <img style="width:100%;max-width:100%" src="images/hoi_eg.png">
+	      </td>
+	      <td style="padding-right:1%;width:32%;vertical-align:middle">
+            <img style="width:100%;max-width:100%" src="images/classic_eg.png">
+	      </td>
+	    </tr>
+	  </table>
+
+      <h3>Bongard Problems Deep Dive</h3>
+        <p>Bongard problems are a kind of visual reasoning task. Every Bongard problem depicts a visual “concept.” The human or AI is provided with two sets of images: the positive “support set” contains only images depicting that concept, and the negative “support set” contains only images that do not depict that concept. Examples of concepts are “shape contains three sides” and “human is eating apple.” The goal of the problem is to determine the concept in play, given these support images.</p>
+        <p>To aid large-scale evaluation of AI systems, the task can be posed slightly differently. Rather than predict the concept, the AI is expected to classify unseen query images as either positive or negative given the positive and negative support sets for a Bongard problem.</p>
+        <p>The figure above contains three kinds of Bongard problems. The first and third Bongard problems contain only symbolic images, and the second problem contains natural images depicting human-object interactions. Can you figure out the concepts in play?</p>
+        <h3>Why Cross-Image Context?</h3>
+        <p>Bongard problems cannot be solved without incorporating cross-image context. Consider the third Bongard problem above. Would you be able to determine the concept if you couldn’t simultaneously consider multiple positive and negative supports and how they are similar and different?</p>
+        <h3>Method Overview</h3>
+        <div class="w3-center">
+            <img src="images/svm-mimic.png" style="width:70%">
+        </div>
+        <p>We propose two methods for incorporating cross-image context. We demonstrate the success of these methods when combined with three baseline classifiers: k-nearest neighbors (k-NN), support vector machines (SVM), and “Prototype,” where we compute an average over each of the positive and negative support sets and classify a query according to the closer average. Although these approaches are simple, combining them with cross-image context sets a new state-of-the-art on Bongard datasets.</p>
+        <h4>Cross-Image Context via Standardization</h4>
+        <p>In the first method, we calculate a mean and standard deviation over the support set of each Bongard problem and use these statistics to standardize every image embedding, including those of the queries, before inputting them into a classifier. Intuitively, this method adapts each image embedding using context (i.e., mean and standard deviation) from all other images in the support set. This form of normalization outperforms other forms that do not incorporate cross-image context.</p>
+        <h4>Cross-Image Context via Transformer</h4>
+        <p>We also learn cross-image context. The first approach operates on one Bongard problem at a time, but in this learned setting, we can use large training sets to learn priors that apply to multiple problems.</p>
+        <p>We use a Transformer to learn cross-image context. We first embed every support image using an image encoder, standardize, and then input the standardized embeddings into the Transformer by treating each embedding as a token. We choose a Transformer over other architectures due to self-attention, which easily enables the incorporation of cross-image context.</p>
+        <p>Given the support set for a single Bongard problem, we train our Transformer to directly output “rule(s)” for solving that problem. These “rule(s)” can then be used to classify queries. We explore two forms of rules in our paper. SVM-Mimic produces a hyperplane decision boundary to separate positive and negative support instances, just like SVMs. Prototype-Mimic produces two rules: a prototype for each class.</p>
+	  <hr>
+
+	  <div class="w3-center">
+	    <h2>Results</h2>
+	  </div>
+      <p>We set a new state-of-the-art on Bongard-LOGO and Bongard-HOI, two benchmark Bongard datasets. Standardization improves the performance of the classifiers in every case. Our Transformer approach leads to further performance improvements, with SVM- and Prototype-Mimic outperforming their corresponding baseline classifiers.</p>
+      <img src="images/logo_results.png" style="width:100%;margin-bottom:20px">
+      <img src="images/hoi_results.png" style="width:100%;margin-bottom:20px">
+      <hr>
+
+	  <div class="w3-row w3-margin" style="padding-bottom:2em">
+	    <div class="w3-center"><h2>Paper</h2></div>
+	    <div class="w3-col s0 m1 l2" style="height:10px"></div>
+	    <div class="w3-col s6 m3 l2">
+	      <a href="https://arxiv.org/abs/2204.04153"><img class="layered-paper-big" src="../images/bongard paper.png" style="width:100%;min-height:200px; margin-right:3em"></a>
+	    </div>
+	    <div class="w3-col s6 m7 l6" style="padding-left:5em">
+	      <div class="cite">
+        Nikhil Raghuraman, Adam W. Harley, and Leonidas Guibas.
+		<i>Cross-Image Context Matters for Bongard Problems.</i> 
+		arXiv preprint.
+	      </div>
+	      <h3><a href="https://arxiv.org/pdf/2204.04153.pdf">[pdf]</a>&emsp;<a href="bib.txt">[bibtex]</a></h3>
+	    </div>
+	    <div class="w3-col s0 m1 l2" style="height:10px"></div>
+	  </div>
+	  <hr>
+	  
+	</div>
+    </div>
+
+  </body>
+</html>
