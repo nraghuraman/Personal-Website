@@ -1,0 +1,8 @@
+@misc{raghuraman2023crossimage,
+      title={Cross-Image Context Matters for Bongard Problems}, 
+      author={Nikhil Raghuraman and Adam W. Harley and Leonidas Guibas},
+      year={2023},
+      eprint={2309.03468},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
