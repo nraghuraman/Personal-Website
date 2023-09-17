@@ -43,7 +43,7 @@
 	<div class="w3-display-container w3-row w3-white w3-margin-bottom">
 	  <div class="w3-center">
 	    <h1>Cross-Image Context Matters for Bongard Problems</h1>
-	    <h5><a href="https://nikhilraghuraman.com">Nikhil Raghuraman</a> &emsp;&emsp; <a href="https://adamharley.com/">Adam W. Harley</a> &emsp;&emsp; <a href="https://geometry.stanford.edu/member/guibas/">Leonidas Guibas</a></h5>
+	    <h5><a href="https://nikhilraghuraman.com">Nikhil Raghuraman</a> &emsp;&emsp; <a href="https://adamharley.com/">Adam W. Harley</a> &emsp;&emsp; <a href="https://geometry.stanford.edu/member/guibas/">Leonidas J. Guibas</a></h5>
 	  </div>
 	  <div class="w3-center">
 	    <h3>[<a href="https://arxiv.org/abs/2309.03468">Paper</a>] &emsp; [<a href="https://github.com/nraghuraman/bongard-context">Code</a>] &emsp;</h3>
@@ -98,6 +98,12 @@
       <p>We set a new state-of-the-art on Bongard-LOGO and Bongard-HOI, two benchmark Bongard datasets. Standardization improves the performance of the classifiers in every case. Our Transformer approach leads to further performance improvements, with SVM- and Prototype-Mimic outperforming their corresponding baseline classifiers.</p>
       <img src="images/logo_results.png" style="width:100%;margin-bottom:20px">
       <img src="images/hoi_results.png" style="width:100%;margin-bottom:20px">
+      <hr>
+
+      <div class="w3-center">
+        <h2>Limitations</h2>
+      </div>
+      <p>One limitation of our approach is sensitivity to the choice of encoder. It may be that as the strength of the encoder increases, the need for sophisticated cross-image context decreases, and statistical standardization may suffice. We also note that our Bongard-LOGO results appear to have benefited greatly from a contrastive learning stage that we incorporate to train our encoder, and perhaps other methods could be improved by incorporating our feature-learning technique.</p>
       <hr>
 
 	  <div class="w3-row w3-margin" style="padding-bottom:2em">
